@@ -4,7 +4,9 @@
 /themes
 
 /hybrid/node_modules
-/hybrid/platforms
+/hybrid/platforms/ios
+/hybrid/platforms/android
+/hybrid/platforms/browser
 /hybrid/www/*
 
 !hybrid/plugins
