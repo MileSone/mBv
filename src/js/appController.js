@@ -5,7 +5,7 @@
 /*
  * Your application specific code will go here
  */
-define(['ojs/ojcore', 'knockout', 'ojs/ojrouter', 'ojs/ojarraytabledatasource', 'ojs/ojknockout', 'ojs/ojmoduleanimations','ojs/ojdatetimepicker', 'ojs/ojvalidation-datetime', 'ojs/ojtimezonedata', 'ojs/ojlabel'],
+define(['ojs/ojcore', 'knockout', 'ojs/ojrouter', 'ojs/ojarraytabledatasource', 'ojs/ojknockout', 'ojs/ojmoduleanimations', 'ojs/ojdatetimepicker', 'ojs/ojvalidation-datetime', 'ojs/ojtimezonedata', 'ojs/ojlabel', 'ojs/ojoffcanvas', 'ojs/ojbutton'],
         function (oj, ko) {
             function ControllerViewModel() {
                 var self = this;
@@ -22,7 +22,7 @@ define(['ojs/ojcore', 'knockout', 'ojs/ojrouter', 'ojs/ojarraytabledatasource', 
 
                 self.router.configure({
                     'login': {label: '登录', isDefault: true},
-                    'yinxiao': {label: '营销分析'},
+                    'yingxiao': {label: '营销分析'},
                     'caiwu': {label: '财务收支分析'},
                 });
 
@@ -31,28 +31,20 @@ define(['ojs/ojcore', 'knockout', 'ojs/ojrouter', 'ojs/ojarraytabledatasource', 
                 self.userLogin = ko.observable("xiaoqiang@126.com");
 
                 oj.Router.defaults['urlAdapter'] = new oj.Router.urlParamAdapter();
-                // Callback function that can return different animations based on application logic.
-                function switcherCallback(context) {
-                    if (platform === 'android')
-                        return 'fade';
-                    return null;
-                }
-                ;
 
-                function mergeConfig(original) {
-                    return $.extend(true, {}, original, {
-                        'animation': oj.ModuleAnimations.switcher(switcherCallback)
-                    });
-                }
 
-                self.moduleConfig = mergeConfig(self.router.moduleConfig);
+      self.moduleConfig = self.router.moduleConfig;
                 // Navigation setup
                 var navData = [
+                    {name: '营销分析', id: 'yingxiao',
+                        iconClass: 'oj-navigationlist-item-icon demo-icon-font-24 demo-person-icon-24'},
+                    {name: '财务收支分析', id: 'caiwu',
+                        iconClass: 'oj-navigationlist-item-icon demo-icon-font-24 demo-person-icon-24'},
                     {name: '我', id: 'profile',
                         iconClass: 'oj-navigationlist-item-icon demo-icon-font-24 demo-person-icon-24'}
                 ];
 
-      self.navDataSource = new oj.ArrayTableDataSource(navData, {idAttribute: 'id'});
+                self.navDataSource = new oj.ArrayTableDataSource(navData, {idAttribute: 'id'});
 
       // Drawer setup
       self.toggleDrawer = function() {
@@ -61,45 +53,45 @@ define(['ojs/ojcore', 'knockout', 'ojs/ojrouter', 'ojs/ojarraytabledatasource', 
       // Add a close listener so we can move focus back to the toggle button when the drawer closes
       $("#navDrawer").on("ojclose", function() { $('#drawerToggleButton').focus(); });
 
-      // Header Setup
-      self.getHeaderModel = function() {
-        var headerFactory = {
-          createViewModel: function(params, valueAccessor) {
-            var model =  {
-              pageTitle: self.router.currentState().label,
-              handleBindingsApplied: function(info) {
-                // Adjust content padding after header bindings have been applied
-                self.adjustContentPadding();
-              },
-              toggleDrawer: self.toggleDrawer
-            };
-            return Promise.resolve(model);
-          }
-        }
-        return headerFactory;
-      }
+                // Header Setup
+                self.getHeaderModel = function () {
+                    var headerFactory = {
+                        createViewModel: function (params, valueAccessor) {
+                            var model = {
+                                pageTitle: self.router.currentState().label,
+                                handleBindingsApplied: function (info) {
+                                    // Adjust content padding after header bindings have been applied
+                                    self.adjustContentPadding();
+                                },
+                                toggleDrawer: self.toggleDrawer
+                            };
+                            return Promise.resolve(model);
+                        }
+                    }
+                    return headerFactory;
+                }
 
-      // Method for adjusting the content area top/bottom paddings to avoid overlap with any fixed regions. 
-      // This method should be called whenever your fixed region height may change.  The application
-      // can also adjust content paddings with css classes if the fixed region height is not changing between 
-      // views.
-      self.adjustContentPadding = function () {
-        var topElem = document.getElementsByClassName('oj-applayout-fixed-top')[0];
-        var contentElem = document.getElementsByClassName('oj-applayout-content')[0];
-        var bottomElem = document.getElementsByClassName('oj-applayout-fixed-bottom')[0];
+                // Method for adjusting the content area top/bottom paddings to avoid overlap with any fixed regions. 
+                // This method should be called whenever your fixed region height may change.  The application
+                // can also adjust content paddings with css classes if the fixed region height is not changing between 
+                // views.
+                self.adjustContentPadding = function () {
+                    var topElem = document.getElementsByClassName('oj-applayout-fixed-top')[0];
+                    var contentElem = document.getElementsByClassName('oj-applayout-content')[0];
+                    var bottomElem = document.getElementsByClassName('oj-applayout-fixed-bottom')[0];
 
-        if (topElem) {
-          contentElem.style.paddingTop = topElem.offsetHeight+'px';
-        }
-        if (bottomElem) {
-          contentElem.style.paddingBottom = bottomElem.offsetHeight+'px';
-        }
-        // Add oj-complete marker class to signal that the content area can be unhidden.
-        // See the override.css file to see when the content area is hidden.
-        contentElem.classList.add('oj-complete');
-      }
-    }
+                    if (topElem) {
+                        contentElem.style.paddingTop = topElem.offsetHeight + 'px';
+                    }
+                    if (bottomElem) {
+                        contentElem.style.paddingBottom = bottomElem.offsetHeight + 'px';
+                    }
+                    // Add oj-complete marker class to signal that the content area can be unhidden.
+                    // See the override.css file to see when the content area is hidden.
+                    contentElem.classList.add('oj-complete');
+                }
+            }
 
-    return new ControllerViewModel();
-  }
+            return new ControllerViewModel();
+        }
 );

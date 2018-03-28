@@ -9,6 +9,33 @@
 /* Hides the content area until we are ready to display after paddings have been adjusted. 
     oj-complete is a marker class that is applied by the appController 
     after adjusting the content area. */
+.oj-applayout-content:not(.oj-complete) {
+  visibility: hidden;
+}
+
+.demo-james-icon {
+  width: 80px;
+  height: 80px;
+  display: block;
+  padding-top: 24px;
+  padding-bottom: 16px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.demo-profile-name {
+  font-size: 1.714rem;
+  text-align: center;
+  color: #ffffff;
+  margin: 0;
+  padding-bottom: 42px;
+}
+
+.demo-app-name {
+  padding-top: 40px;
+  color: #979899;
+}
+
 
 .myheader {
     width: 100%;
@@ -73,7 +100,7 @@ Login
 
 .loginBG{
     background-color: white;
-    background: url("images/loginNew.png");
+    background: url("images/loginBg.png");
     background-size: cover;
     background-repeat: no-repeat;
     position: fixed;
@@ -95,12 +122,12 @@ Login
 
 .demo-logo-icon{
     max-width: 350px;
-    width: 62%;
+    width: 40%;
     text-align: center;
     margin: 0 auto;
     margin-top: 40%;
-    margin-bottom: 10%;
-    content:url("images/logoIcon.png");
+    margin-bottom: 20%;
+    content:url("images/userLoginIcon.png");
 }
 
 /*PC*/  
@@ -112,7 +139,7 @@ Login
         margin: 0 auto;
         margin-top: 15%;
         margin-bottom: 10%;
-        content:url("images/logoIcon.png");
+        content:url("images/userLoginIcon.png");
     }
 }  
 
@@ -173,7 +200,7 @@ oj-input-password{
 }
 
 #loginBtn{
-    width: 283px;
+    width: 270px;
     background-color: white;;
     border-radius: 10px;
     display: block;
