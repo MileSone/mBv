@@ -10,30 +10,30 @@
     oj-complete is a marker class that is applied by the appController 
     after adjusting the content area. */
 .oj-applayout-content:not(.oj-complete) {
-  visibility: hidden;
+    visibility: hidden;
 }
 
 .demo-james-icon {
-  width: 80px;
-  height: 80px;
-  display: block;
-  padding-top: 24px;
-  padding-bottom: 16px;
-  margin-left: auto;
-  margin-right: auto;
+    width: 80px;
+    height: 80px;
+    display: block;
+    padding-top: 24px;
+    padding-bottom: 16px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .demo-profile-name {
-  font-size: 1.714rem;
-  text-align: center;
-  color: #ffffff;
-  margin: 0;
-  padding-bottom: 42px;
+    font-size: 1.714rem;
+    text-align: center;
+    color: #ffffff;
+    margin: 0;
+    padding-bottom: 42px;
 }
 
 .demo-app-name {
-  padding-top: 40px;
-  color: #979899;
+    padding-top: 40px;
+    color: #979899;
 }
 
 
@@ -125,8 +125,7 @@ Login
     width: 40%;
     text-align: center;
     margin: 0 auto;
-    margin-top: 40%;
-    margin-bottom: 20%;
+    margin-top: 25%;
     content:url("images/userLoginIcon.png");
 }
 
@@ -134,7 +133,7 @@ Login
 @media screen and (min-width:960px){  
     .demo-logo-icon{
         max-width: 350px;
-        width: 80%;
+        width: 160px;
         text-align: center;
         margin: 0 auto;
         margin-top: 15%;
@@ -143,7 +142,14 @@ Login
     }
 }  
 
-
+.loginBG .oj-inputtext, .oj-inputpassword, .oj-textarea, .oj-inputtext-nocomp, .oj-inputpassword-nocomp, .oj-textarea-nocomp {
+    box-sizing: border-box;
+    display: inline-block;
+    font-size: 1rem;
+    max-width: 100%;
+    min-width: 76px;
+    width: 100%;
+}
 
 .no-border{
     border:none !important;
@@ -174,8 +180,6 @@ oj-input-password{
 }
 
 #form-container{
-    position: absolute;
-    bottom: 100px;
     width: 100%;
 }
 
