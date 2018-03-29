@@ -78,15 +78,6 @@
     height:50px;
 }
 
-.globChartSty{
-    max-height: 600px;
-    min-height: 340px;
-    width:calc(100% - 30px);
-    white-space: normal;
-    margin-right: 30px;
-    width: -moz-calc(100% - 30px);
-    width:-webkit-calc(100% - 30px);
-}
 
 #monthID .oj-popup{
     width:50%;
@@ -635,6 +626,7 @@ demo-chart-three-d-effect-control oj-buttonset-one , demo-chart-orientation-cont
 #homeView .dashCell{
     width: 100%;
     height: calc((100vh - 57px) / 3);
+    min-height: 150px;
     position: relative;
 }
 
@@ -660,19 +652,30 @@ demo-chart-three-d-effect-control oj-buttonset-one , demo-chart-orientation-cont
     padding: 0 1rem 0 1rem;
 }
 
-
-.dashCell .oj-button-jqui.oj-default.oj-button-half-chrome, .oj-button-jqui.oj-focus-only.oj-button-half-chrome, .oj-button.oj-default.oj-button-half-chrome .oj-button-button, .oj-button.oj-focus-only.oj-button-half-chrome .oj-button-button {
+.dashCell .oj-button-jqui.oj-default.oj-button-half-chrome, .dashCell .oj-button-jqui.oj-focus-only.oj-button-half-chrome,.dashCell .oj-button.oj-default.oj-button-half-chrome .oj-button-button,.dashCell .oj-button.oj-focus-only.oj-button-half-chrome .oj-button-button {
     text-shadow: none;
     border-color: #40403d;
     color: #40403d;
     border: 1px solid;
 }
 
-.dashCell .oj-button-jqui.oj-disabled.oj-button-half-chrome, .oj-button.oj-disabled.oj-button-half-chrome .oj-button-button {
+.dashCell .oj-button-jqui.oj-disabled.oj-button-half-chrome,.dashCell .oj-button.oj-disabled.oj-button-half-chrome .oj-button-button {
     color: #313131;
     opacity: 0.5;
 }
 
-.dashCell .oj-button-jqui.oj-default.oj-button-half-chrome, .oj-button-jqui.oj-focus-only.oj-button-half-chrome, .oj-button-jqui.oj-disabled.oj-button-half-chrome, .oj-button.oj-default.oj-button-half-chrome .oj-button-button, .oj-button.oj-focus-only.oj-button-half-chrome .oj-button-button, .oj-button.oj-disabled.oj-button-half-chrome .oj-button-button {
+.dashCell .oj-button-jqui.oj-default.oj-button-half-chrome,.dashCell .oj-button-jqui.oj-focus-only.oj-button-half-chrome,.dashCell .oj-button-jqui.oj-disabled.oj-button-half-chrome,.dashCell .oj-button.oj-default.oj-button-half-chrome .oj-button-button,.dashCell .oj-button.oj-focus-only.oj-button-half-chrome .oj-button-button,.dashCell .oj-button.oj-disabled.oj-button-half-chrome .oj-button-button {
     border-color: #40403d; 
+}
+
+
+
+.cwCell{
+    height: calc((100vh - 57px) / 3);
+    min-height: 150px;
+}
+
+.cwCell .oj-chart {
+    width: 100%;
+    height: auto;
 }
