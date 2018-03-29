@@ -103,7 +103,7 @@ define(['ojs/ojcore', 'knockout', 'jquery', 'appController', 'ojs/ojlabel',
                 self.loginSuccess = function (data) {
 
                     app.isLoggedIn(true);
-                    oj.Router.rootInstance.go('yingxiao');
+                    oj.Router.rootInstance.go('home');
                     userName = self.username();
                     userCheck = data;
                 };

@@ -71,7 +71,6 @@
 
 .oj-hybrid-applayout-page {
     min-height: 100vh;
-    padding-bottom: 68px;
     background-color: #ffffff;
 }
 
@@ -205,14 +204,14 @@ oj-input-password{
 
 #loginBtn{
     width: 270px;
-    background-color: white;;
+    background-color: #40403d;
     border-radius: 10px;
     display: block;
     margin: 0 auto;
 }
 
 #loginBtn .oj-button-text{
-    color:rgb(53, 138, 245);
+    color: white;
 }
 
 .oj-button.oj-default.oj-button-half-chrome .oj-button-icon, .oj-button.oj-focus-only.oj-button-half-chrome .oj-button-icon {
@@ -309,7 +308,6 @@ a .oj-clickable-icon, a.oj-clickable-icon, a.oj-clickable-icon-nocontext, a:visi
 
 
 .oj-navigationlist ul .oj-selected{
-    border-bottom: 2px solid #0572ce !important;
     border-radius: 2px !important;
 }
 
@@ -595,4 +593,86 @@ demo-chart-three-d-effect-control oj-buttonset-one , demo-chart-orientation-cont
     cursor: inherit;
     vertical-align: middle;
     margin-bottom: 9px;
+}
+
+/* Home
+*/
+
+.demo-dash-icon-one{
+    content:url("images/dash_1.png");
+}
+.demo-dash-icon-two{
+    content:url("images/dash_2.png");
+}
+.demo-dash-icon-three{
+    content:url("images/dash_3.png");
+}
+.demo-dash-icon-four{
+    content:url("images/dash_4.png");
+}
+.demo-dash-icon-five{
+    content:url("images/dash_5.png");
+}
+.demo-dash-icon-six{
+    content:url("images/dash_6.png");
+}
+
+#homeView .oj-button.oj-active.oj-button-half-chrome .oj-button-button{
+    background-color: #c3c3c3 !important;
+    border-color: #c3c3c3 !important;
+}
+
+.demo-dash-icon {
+    display: inline-block;
+    height: 58%;
+    line-height: 1;
+    overflow: hidden;
+    direction: ltr;
+    text-align: center;
+    box-sizing: content-box;
+}
+
+#homeView .dashCell{
+    width: 100%;
+    height: calc((100vh - 57px) / 3);
+    position: relative;
+}
+
+#homeView oj-button{
+    width: 100% !important;
+    height: 100% !important;
+    background-color: #eceff1;
+}
+
+#homeView .subTile{
+    width: 100%;
+    text-align: center;
+    z-index: 200;
+    position: absolute;
+    bottom: 8px;
+    font-family: "SimHei";
+}
+
+.oj-hybrid-applayout-header, .oj-hybrid-applayout-header-no-border {
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+    border-bottom: 1px solid #d5dfe5;
+    background-color: #40403d;
+    padding: 0 1rem 0 1rem;
+}
+
+
+.dashCell .oj-button-jqui.oj-default.oj-button-half-chrome, .oj-button-jqui.oj-focus-only.oj-button-half-chrome, .oj-button.oj-default.oj-button-half-chrome .oj-button-button, .oj-button.oj-focus-only.oj-button-half-chrome .oj-button-button {
+    text-shadow: none;
+    border-color: #40403d;
+    color: #40403d;
+    border: 1px solid;
+}
+
+.dashCell .oj-button-jqui.oj-disabled.oj-button-half-chrome, .oj-button.oj-disabled.oj-button-half-chrome .oj-button-button {
+    color: #313131;
+    opacity: 0.5;
+}
+
+.dashCell .oj-button-jqui.oj-default.oj-button-half-chrome, .oj-button-jqui.oj-focus-only.oj-button-half-chrome, .oj-button-jqui.oj-disabled.oj-button-half-chrome, .oj-button.oj-default.oj-button-half-chrome .oj-button-button, .oj-button.oj-focus-only.oj-button-half-chrome .oj-button-button, .oj-button.oj-disabled.oj-button-half-chrome .oj-button-button {
+    border-color: #40403d; 
 }

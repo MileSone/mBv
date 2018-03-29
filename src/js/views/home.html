@@ -1,0 +1,82 @@
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!--
+ Copyright (c) 2014, 2018, Oracle and/or its affiliates.
+ The Universal Permissive License (UPL), Version 1.0
+-->
+<div class="oj-hybrid-applayout-page">
+    <div class="oj-applayout-fixed-top">
+        <!--
+         ** Oracle JET V4.2.0 hybrid mobile application header pattern.
+         ** Please see the Oracle JET Cookbook App Shell: Hybrid Mobile demos for
+         ** more information on how to use this pattern.
+        -->
+        <header role="banner" class="oj-hybrid-applayout-header" data-bind="ojModule: headerConfig">
+        </header>
+    </div>
+    <!-- This is where your main page content will be loaded -->
+    <div class="oj-applayout-content" id="homeView">
+        <div role="main" class="oj-hybrid-applayout-content">
+            <div>
+                <div class="oj-flex">
+                    <div class="oj-sm-6 oj-md-6 oj-flex-item">
+                        <div class="dashCell">
+                            <oj-button on-click='[[dashAction_One]]'>               
+                                <div class="demo-dash-icon demo-dash-icon-one "></div>           
+                            </oj-button>
+                            <div class="subTile">财务收支分析</div>
+                        </div>
+                    </div>
+                    <div class="oj-sm-6 oj-md-6 oj-flex-item">
+                        <div class="dashCell">
+                            <oj-button on-click='[[dashAction_Two]]'>               
+                                <div class="demo-dash-icon demo-dash-icon-two "></div>           
+                            </oj-button>
+                            <div class="subTile">营销分析</div>
+                        </div>
+                    </div>
+                    <div class="oj-sm-6 oj-md-6 oj-flex-item">
+                        <div class="dashCell">
+                            <oj-button on-click='[[dashAction]]' disabled='true'>               
+                                <div class="demo-dash-icon demo-dash-icon-three "></div>           
+                            </oj-button>
+                            <div class="subTile">财务分析</div>
+                        </div>
+                    </div>
+                    <div class="oj-sm-6 oj-md-6 oj-flex-item">
+                        <div class="dashCell">
+                            <oj-button on-click='[[dashAction]]' disabled='true'>               
+                                <div class="demo-dash-icon demo-dash-icon-four"></div>           
+                            </oj-button>
+                            <div class="subTile">资产转换</div>
+                        </div>
+                    </div>
+                    <div class="oj-sm-6 oj-md-6 oj-flex-item">
+                        <div class="dashCell">
+                            <oj-button on-click='[[dashAction]]' disabled='true'>               
+                                <div class="demo-dash-icon demo-dash-icon-six"></div>           
+                            </oj-button>
+                            <div class="subTile">现金状况</div>
+                        </div>
+                    </div>
+                    <div class="oj-sm-6 oj-md-6 oj-flex-item">
+                        <div class="dashCell">
+                            <oj-button on-click='[[dashAction]]' disabled='true' >               
+                                <div class="demo-dash-icon demo-dash-icon-five"></div>           
+                            </oj-button>
+                            <div class="subTile">财产状况</div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+

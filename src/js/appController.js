@@ -22,6 +22,7 @@ define(['ojs/ojcore', 'knockout', 'ojs/ojrouter', 'ojs/ojarraytabledatasource', 
 
                 self.router.configure({
                     'login': {label: '登录', isDefault: true},
+                    'home': {label: '主页'},
                     'yingxiao': {label: '营销分析'},
                     'caiwu': {label: '财务收支分析'},
                 });
@@ -33,25 +34,29 @@ define(['ojs/ojcore', 'knockout', 'ojs/ojrouter', 'ojs/ojarraytabledatasource', 
                 oj.Router.defaults['urlAdapter'] = new oj.Router.urlParamAdapter();
 
 
-      self.moduleConfig = self.router.moduleConfig;
+                self.moduleConfig = self.router.moduleConfig;
                 // Navigation setup
                 var navData = [
+                    {name: '主页', id: 'home',
+                        iconClass: 'oj-navigationlist-item-icon demo-icon-font-24 demo-home-icon-24'},
                     {name: '营销分析', id: 'yingxiao',
-                        iconClass: 'oj-navigationlist-item-icon demo-icon-font-24 demo-person-icon-24'},
+                        iconClass: 'oj-navigationlist-item-icon demo-icon-font-24 demo-chart-icon-24'},
                     {name: '财务收支分析', id: 'caiwu',
-                        iconClass: 'oj-navigationlist-item-icon demo-icon-font-24 demo-person-icon-24'},
-                    {name: '我', id: 'profile',
-                        iconClass: 'oj-navigationlist-item-icon demo-icon-font-24 demo-person-icon-24'}
+                        iconClass: 'oj-navigationlist-item-icon demo-icon-font-24 demo-chart-icon-24'},
+                    {name: '登出', id: 'login',
+                        iconClass: 'oj-navigationlist-item-icon demo-icon-font-24 demo-signout-icon-24'}
                 ];
 
                 self.navDataSource = new oj.ArrayTableDataSource(navData, {idAttribute: 'id'});
 
-      // Drawer setup
-      self.toggleDrawer = function() {
-        return oj.OffcanvasUtils.toggle({selector: '#navDrawer', modality: 'modal', content: '#pageContent'});
-      }
-      // Add a close listener so we can move focus back to the toggle button when the drawer closes
-      $("#navDrawer").on("ojclose", function() { $('#drawerToggleButton').focus(); });
+                // Drawer setup
+                self.toggleDrawer = function () {
+                    return oj.OffcanvasUtils.toggle({selector: '#navDrawer', modality: 'modal', content: '#pageContent'});
+                }
+                // Add a close listener so we can move focus back to the toggle button when the drawer closes
+                $("#navDrawer").on("ojclose", function () {
+                    $('#drawerToggleButton').focus();
+                });
 
                 // Header Setup
                 self.getHeaderModel = function () {
