@@ -1,0 +1,36 @@
+<!--
+ Copyright (c) 2014, 2018, Oracle and/or its affiliates.
+ The Universal Permissive License (UPL), Version 1.0
+-->
+<div class="oj-hybrid-applayout-page">
+    <div class="oj-applayout-fixed-top">
+        <!--
+         ** Oracle JET V4.2.0 hybrid mobile application header pattern.
+         ** Please see the Oracle JET Cookbook App Shell: Hybrid Mobile demos for
+         ** more information on how to use this pattern.
+        -->
+        <header role="banner" class="oj-hybrid-applayout-header" data-bind="ojModule: headerConfig">
+        </header>
+    </div>
+    <!-- This is where your main page content will be loaded -->
+    <div class="oj-applayout-content">
+        <div role="main" class="oj-hybrid-applayout-content">
+            <div class="oj-hybrid-padding">
+                <oj-button id='button1back' on-click='[[backBtn]]'>Back</oj-button>
+
+                <!-- ko foreach: bkdata1 -->
+                <my-bk-bar data-url="{{dataurl}}" chart-name="{{chartname}}"/>
+                <!-- /ko -->
+
+                <!-- ko foreach: bkdata2 -->
+                <my-bk-bar data-url="{{dataurl}}" chart-name="{{chartname}}"/>
+                <!-- /ko -->
+
+                <!-- ko foreach: bkdata3 -->
+                <my-bk-bar data-url="{{dataurl}}" chart-name="{{chartname}}"/>
+                <!-- /ko -->
+
+            </div>
+        </div>
+    </div>
+</div>

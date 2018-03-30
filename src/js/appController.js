@@ -25,7 +25,9 @@ define(['ojs/ojcore', 'knockout', 'ojs/ojrouter', 'ojs/ojarraytabledatasource', 
                     'home': {label: '主页'},
                     'yingxiao': {label: '营销分析'},
                     'caiwu': {label: '财务收支分析'},
-                    'caiwu/bankuai': {label: '板块分析'},
+                    'bankuai': {label: '公司分板块每日收款明细'},
+                    'subcomps': {label: '子公司集合每日收款明细'},
+                    'singlecomp': {label: '单个子公司每日收款分类明细'},
                 });
 
                 self.appName = ko.observable("质量数据可视化平台");

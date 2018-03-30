@@ -17,6 +17,19 @@
     <div role="main" class="oj-hybrid-applayout-content">
       <div class="oj-hybrid-padding">
                <oj-button id='button1back' on-click='[[backBtn]]'>Back</oj-button>
+               
+               
+                <!-- ko foreach: scdata1 -->
+                <my-sc-bar data-url="{{dataurl}}" chart-name="{{chartname}}"/>
+                <!-- /ko -->
+
+                <!-- ko foreach: scdata2 -->
+                <my-sc-bar data-url="{{dataurl}}" chart-name="{{chartname}}"/>
+                <!-- /ko -->
+
+                <!-- ko foreach: scdata3 -->
+                <my-sc-bar data-url="{{dataurl}}" chart-name="{{chartname}}"/>
+                <!-- /ko -->
       </div>
     </div>
   </div>

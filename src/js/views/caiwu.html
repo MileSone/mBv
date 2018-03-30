@@ -17,8 +17,8 @@
         <div role="main" class="oj-hybrid-applayout-content">
             <div class="oj-hybrid-padding">
                 <div class="cwCell">
-                    <div>公司每日收款概况</div>
-                    <div class="cwCell  oj-flex">
+                    <div class="cw_t">公司每日收款概况</div>
+                    <div class="cTCell  oj-flex cwChartS" style="background-color: #969edc;">
                         <div class="oj-sm-6 oj-md-6  oj-flex-item">
                             <!-- ko foreach: incomeArr1 -->
                             <my-littlePie data-url="{{dataurl}}" chart-name="{{chartname}}"/>
@@ -32,8 +32,8 @@
                     </div>
                 </div>
                 <div class="cwCell">
-                    <div>公司每日付款概况</div>
-                    <div class="cwCell oj-flex">
+                    <div class="cw_t">公司每日付款概况</div>
+                    <div class="cTCell oj-flex cwChartS" style="background-color: #d2dab0;">
                         <div class="oj-sm-12 oj-md-12 oj-flex-item">
                             <!-- ko foreach: incomeArr3 -->
                             <my-littlePie data-url="{{dataurl}}" chart-name="{{chartname}}"/>
@@ -42,8 +42,8 @@
                     </div>
                 </div>
                 <div class="cwCell">
-                    <div>公司每日资金概况</div>
-                    <div class="cwCell oj-flex">
+                    <div class="cw_t">公司每日资金概况</div>
+                    <div class="oj-flex cwChartS" style="background-color: #c3d0ce;">
                         <div class="oj-sm-12 oj-md-12 oj-flex-item">
                             <!-- ko foreach: incomeArr4 -->
                             <my-Pie data-url="{{dataurl}}" chart-name="{{chartname}}"/>
