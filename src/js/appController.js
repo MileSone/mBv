@@ -5,7 +5,7 @@
 /*
  * Your application specific code will go here
  */
-define(['ojs/ojcore', 'knockout', 'ojs/ojrouter', 'ojs/ojarraytabledatasource', 'ojs/ojknockout', 'ojs/ojmoduleanimations', 'ojs/ojdatetimepicker', 'ojs/ojvalidation-datetime', 'ojs/ojtimezonedata', 'ojs/ojlabel', 'ojs/ojoffcanvas', 'ojs/ojbutton'],
+define(['ojs/ojcore', 'knockout', 'ojs/ojrouter', 'ojs/ojarraytabledatasource', 'ojs/ojknockout', 'ojs/ojmoduleanimations', 'ojs/ojdatetimepicker', 'ojs/ojselectcombobox', 'ojs/ojvalidation-datetime', 'ojs/ojtimezonedata', 'ojs/ojlabel', 'ojs/ojoffcanvas', 'ojs/ojbutton'],
         function (oj, ko) {
             function ControllerViewModel() {
                 var self = this;
@@ -17,6 +17,7 @@ define(['ojs/ojcore', 'knockout', 'ojs/ojrouter', 'ojs/ojarraytabledatasource', 
                 var lgQuery = oj.ResponsiveUtils.getFrameworkQuery(oj.ResponsiveUtils.FRAMEWORK_QUERY_KEY.LG_UP);
                 self.large = oj.ResponsiveKnockoutUtils.createMediaQueryObservable(lgQuery);
                 self.isLoggedIn = ko.observable(false);
+                self.initDateValue = ko.observable(oj.IntlConverterUtils.dateToLocalIso(new Date(2018, 04, 01)));
                 // Router setup
                 self.router = oj.Router.rootInstance;
 
@@ -71,7 +72,9 @@ define(['ojs/ojcore', 'knockout', 'ojs/ojrouter', 'ojs/ojarraytabledatasource', 
                                     // Adjust content padding after header bindings have been applied
                                     self.adjustContentPadding();
                                 },
-                                toggleDrawer: self.toggleDrawer
+                                toggleDrawer: self.toggleDrawer,
+                                dateValue: self.initDateValue,
+                                dateChangeHandler: self.dateChangeHandler
                             };
                             return Promise.resolve(model);
                         }
@@ -97,6 +100,11 @@ define(['ojs/ojcore', 'knockout', 'ojs/ojrouter', 'ojs/ojarraytabledatasource', 
                     // Add oj-complete marker class to signal that the content area can be unhidden.
                     // See the override.css file to see when the content area is hidden.
                     contentElem.classList.add('oj-complete');
+                }
+
+                self.dateChangeHandler = function () {
+                    dataFlag = (dataFlag == "1") ? "2" : "1";
+                    //bankuai.init();
                 }
             }
 

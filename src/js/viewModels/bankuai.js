@@ -18,18 +18,21 @@ define(['ojs/ojcore', 'knockout', 'jquery', 'appController', 'ojs/ojbutton', 'oj
                 // Header Config
                 self.headerConfig = {'viewName': 'header', 'viewModelFactory': app.getHeaderModel()};
 
+                self.bkdata1 = ko.observableArray();
+                self.bkdata2 = ko.observableArray();
+                self.bkdata3 = ko.observableArray();
 
                 self.backBtn = function () {
                     oj.Router.rootInstance.go('caiwu');
-                }
+                };
 
-                self.bkdata1 = ko.observableArray();
-                self.bkdata1.push({dataurl: 'js/data/caiwu/income/bkdata_1.json', chartname: '年累计收款与年计划对比情况'});
-                self.bkdata2 = ko.observableArray();
-                self.bkdata2.push({dataurl: 'js/data/caiwu/income/bkdata_2.json', chartname: '月累计收款与月计划对比情况'});
-                self.bkdata3 = ko.observableArray();
-                self.bkdata3.push({dataurl: 'js/data/caiwu/income/bkdata_3.json', chartname: '当日收款情况'});
+                self.init = function () {
+                    //self.bkdata1.removeALl();
+                    self.bkdata1.push({dataurl: 'js/data/d' + DATAFLAG +'/caiwu/income/bankuai/bkdata_1.json', chartname: '年累计收款与年计划对比情况'});
 
+//                self.bkdata2.push({dataurl: 'js/data/d' + DATAFLAG +'/caiwu/income/bankuai/bkdata_2.json', chartname: '月累计收款与月计划对比情况'});
+//                self.bkdata3.push({dataurl: 'js/data/d' + DATAFLAG +'/caiwu/income/bankuai/bkdata_3.json', chartname: '当日收款情况'});
+                };
 
                 // Below are a subset of the ViewModel methods invoked by the ojModule binding
                 // Please reference the ojModule jsDoc for additional available methods.
@@ -46,7 +49,7 @@ define(['ojs/ojcore', 'knockout', 'jquery', 'appController', 'ojs/ojbutton', 'oj
                  * the promise is resolved
                  */
                 self.handleActivated = function (info) {
-                    // Implement if needed
+                    self.init();
                 };
 
                 /**
@@ -59,7 +62,7 @@ define(['ojs/ojcore', 'knockout', 'jquery', 'appController', 'ojs/ojbutton', 'oj
                  * @param {boolean} info.fromCache - A boolean indicating whether the module was retrieved from cache.
                  */
                 self.handleAttached = function (info) {
-                    // Implement if needed
+                    self.init();
                 };
 
 
