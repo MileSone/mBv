@@ -11,3 +11,7 @@ var monthTime;
 var userCheck;
 
 var userName;
+
+var CURDATE;
+
+var DATAFLAG = 1;

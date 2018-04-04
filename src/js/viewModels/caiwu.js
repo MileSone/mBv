@@ -19,16 +19,16 @@ define(['ojs/ojcore', 'knockout', 'jquery', 'appController', 'jet-composites/my-
                 self.headerConfig = {'viewName': 'header', 'viewModelFactory': app.getHeaderModel()};
 
                 self.incomeArr1 = ko.observableArray();
-                self.incomeArr1.push({dataurl: 'js/data/caiwu/cw_1.json', chartname: '公司年累计收款占公司年收款计划百分比'});
+                self.incomeArr1.push({dataurl: 'js/data/d' + DATAFLAG +'/caiwu/cw_1.json', chartname: '公司年累计收款占公司年收款计划百分比'});
 
                 self.incomeArr2 = ko.observableArray();
-                self.incomeArr2.push({dataurl: 'js/data/caiwu/cw_2.json', chartname: ' 公司当月累计收款占公司月收款计划百分比'});
+                self.incomeArr2.push({dataurl: 'js/data/d' + DATAFLAG +'/caiwu/cw_2.json', chartname: ' 公司当月累计收款占公司月收款计划百分比'});
 
                 self.incomeArr3 = ko.observableArray();
-                self.incomeArr3.push({dataurl: 'js/data/caiwu/cw_3.json', chartname: ' 标题显示公司当日付款总金额'});
+                self.incomeArr3.push({dataurl: 'js/data/d' + DATAFLAG +'/caiwu/cw_3.json', chartname: ' 标题显示公司当日付款总金额'});
 
                 self.incomeArr4 = ko.observableArray();
-                self.incomeArr4.push({dataurl: 'js/data/caiwu/cw_4.json', chartname: ' 标题显示公司当日付款总金额'});
+                self.incomeArr4.push({dataurl: 'js/data/d' + DATAFLAG +'/caiwu/cw_4.json', chartname: ' 标题显示公司当日付款总金额'});
 
 
 
