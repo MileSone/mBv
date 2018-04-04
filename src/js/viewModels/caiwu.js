@@ -14,7 +14,13 @@ define(['ojs/ojcore', 'knockout', 'jquery', 'appController', 'jet-composites/my-
              */
             function caiwuContentViewModel() {
                 var self = this;
-
+                self.pieSeriesValue = ko.observableArray();
+                self.innerRadius = ko.observable(0);
+                self.serToolValue = ko.observable("");
+                self.valToolValue = ko.observable("");
+                self.groupToolValue = ko.observable("");
+                self.payment3 = ko.observable("");
+                self.caldata = ko.observable("");
                 // Header Config
                 self.headerConfig = {'viewName': 'header', 'viewModelFactory': app.getHeaderModel()};
 
@@ -30,6 +36,13 @@ define(['ojs/ojcore', 'knockout', 'jquery', 'appController', 'jet-composites/my-
                 self.incomeArr4 = ko.observableArray();
                 self.incomeArr4.push({dataurl: 'js/data/d' + DATAFLAG +'/caiwu/cw_4.json', chartname: ' 标题显示公司当日付款总金额'});
 
+                $.getJSON('js/data/caiwu/cw_3.json', function (data) {
+                    self.serToolValue(data.seriesTooltip);
+                    self.valToolValue(data.valueTooltip);
+                    self.groupToolValue(data.groupTooltip);
+                    self.pieSeriesValue(data.dataArr);
+                    self.payment3(self.caldata() + "付款总金额"  +  data.datapayment);
+                });
 
 
     

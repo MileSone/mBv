@@ -1,6 +1,6 @@
 {
-  "name": "my-littlePie",
-  "displayName": "my-littlePie",
+  "name": "my-botPie",
+  "displayName": "my-botPie",
   "description": "Describe your component here",
   "version": "1.0.0",
   "jetVersion": "^4.1.0",

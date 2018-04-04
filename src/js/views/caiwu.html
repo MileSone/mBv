@@ -35,9 +35,26 @@
                     <div class="cw_t">公司每日付款概况</div>
                     <div class="cTCell oj-flex cwChartS" style="background-color: #d2dab0;">
                         <div class="oj-sm-12 oj-md-12 oj-flex-item">
-                            <!-- ko foreach: incomeArr3 -->
-                            <my-littlePie data-url="{{dataurl}}" chart-name="{{chartname}}"/>
-                            <!-- /ko -->
+                            <div id='chart-containerS'>
+                                <oj-chart id="pieChartE" class="chartStyle globChartSty"
+                                          type="pie" 
+                                          series="[[pieSeriesValue]]"
+                                          animation-on-display="auto"
+                                          legend.position ="bottom"
+                                          animation-on-data-change="auto"
+                                          style-defaults.three-d-effect="off"
+                                          hide-and-show-behavior="withRescale"
+                                          value-formats.value.scaling ="none"
+                                          y-axis.tick-label.scaling ="none"
+                                          value-formats.series.tooltip-label="[[serToolValue]]"
+                                          value-formats.value.tooltip-label="[[valToolValue]]"
+                                          value-formats.group.tooltip-label="[[groupToolValue]]"
+                                          style-defaults.pie-inner-radius="[[innerRadius]]"
+                                          legend.rendered ="off"
+                                          style="">
+                                </oj-chart>
+                                <p class="sub_title_sty" style="width: 100%;text-align: center;" data-bind="text: payment3"></p>
+                            </div>
                         </div>
                     </div>
                 </div>

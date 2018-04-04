@@ -10,16 +10,18 @@
         <div class="oj-form-layout">
             <div class="oj-form oj-md-labels-inline">
                 <div class="oj-flex oj-flex-items-pad no-border">
-                    <div class="oj-sm-3 oj-md-3 oj-flex-item" style="text-align:right">
-                        <div class="oj-user-icon"></div>
+                    <div class="oj-sm-3 oj-md-3" style="text-align:right">
+                        <!--<div class="oj-user-icon"></div>-->
+                        <div  class="labelSt">用户名:</div>
                     </div>
                     <div class="oj-sm-9 oj-md-9 oj-flex-item" style="text-align:left">
-                        <oj-input-text id="control1" style="max-width:10em" value="{{username}}"></oj-input-text>
+                        <oj-input-text id="control1" style="max-width:10em" value="{{username}}" placeholder="用户名/手机号"></oj-input-text>
                     </div>
                 </div>
                 <div class="oj-flex oj-flex-items-pad no-border">
-                    <div class="oj-sm-3 oj-md-3 oj-flex-item" style="text-align:right">
-                        <div class="oj-pass-icon"></div>
+                    <div class="oj-sm-3 oj-md-3" style="text-align:right">
+                        <!--<div class="oj-pass-icon"></div>-->
+                        <div  class="labelSt">密码:</div>
                     </div>
                     <div class="oj-sm-9 oj-md-9 oj-flex-item" style="text-align:left">
                         <oj-input-password id="control3" style="max-width:10em" value="{{password}}" ></oj-input-password>
@@ -27,10 +29,8 @@
                 </div>
 
                 <div class="oj-flex no-border oj-flex-items-pad">
-                    <div class="oj-sm-3 oj-md-3 oj-flex-item" style="text-align:right;height: 40px;
-                         color: white;
-                         line-height: 36px;">
-                        验证码
+                    <div class="oj-sm-3 oj-md-3" style="text-align:right">
+                        <div  class="labelSt">验证码:</div>
                     </div>
                     <div class="oj-sm-3 oj-md-3 oj-flex-item" style="text-align:left">
                         <oj-input-text id="control5" style="max-width:10em" value="{{smsinput}}"></oj-input-text>
@@ -46,7 +46,7 @@
 
                 <div class="oj-flex no-border leftIt">
                     <div class="oj-flex-item oj-sm-3 oj-md-3" style="text-align:right;margin-right:20px;color:white;font-size:12px;height: 28px;
-    line-height: 28px;">
+                         line-height: 28px;">
                         记住密码
                     </div>
                     <div class="oj-flex-item oj-sm-1 oj-md-1 leftIt">

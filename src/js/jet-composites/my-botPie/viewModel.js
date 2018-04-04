@@ -21,7 +21,7 @@ define(
         self.centerLabel = ko.observable("");
 
         self.listener = function () {
-            oj.Router.rootInstance.go('bankuai');
+//            oj.Router.rootInstance.go('caiwu');
         }
 
         self.serToolValue = ko.observable();

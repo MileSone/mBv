@@ -9,6 +9,15 @@
 /* Hides the content area until we are ready to display after paddings have been adjusted. 
     oj-complete is a marker class that is applied by the appController 
     after adjusting the content area. */
+
+.oj-hybrid-applayout-header-title {
+    font-weight: normal;
+    font-size: 0.8em;
+    color: #000;
+    padding: 0;
+    margin: 0;
+}
+
 .oj-applayout-content:not(.oj-complete) {
     visibility: hidden;
 }
