@@ -7,7 +7,7 @@
 /**
  * caiwu module
  */
-define(['ojs/ojcore', 'knockout', 'jquery', 'appController', 'jet-composites/my-littlePie/loader', 'jet-composites/my-Pie/loader'],
+define(['ojs/ojcore', 'knockout', 'jquery', 'appController', 'jet-composites/my-littlePie/loader', 'jet-composites/my-botPie/loader'],
         function (oj, ko, $, app) {
             /**
              * The view model for the main content view template
@@ -25,27 +25,45 @@ define(['ojs/ojcore', 'knockout', 'jquery', 'appController', 'jet-composites/my-
                 self.headerConfig = {'viewName': 'header', 'viewModelFactory': app.getHeaderModel()};
 
                 self.incomeArr1 = ko.observableArray();
-                self.incomeArr1.push({dataurl: 'js/data/d' + DATAFLAG +'/caiwu/cw_1.json', chartname: '公司年累计收款占公司年收款计划百分比'});
 
                 self.incomeArr2 = ko.observableArray();
-                self.incomeArr2.push({dataurl: 'js/data/d' + DATAFLAG +'/caiwu/cw_2.json', chartname: ' 公司当月累计收款占公司月收款计划百分比'});
-
                 self.incomeArr3 = ko.observableArray();
-                self.incomeArr3.push({dataurl: 'js/data/d' + DATAFLAG +'/caiwu/cw_3.json', chartname: ' 标题显示公司当日付款总金额'});
-
                 self.incomeArr4 = ko.observableArray();
-                self.incomeArr4.push({dataurl: 'js/data/d' + DATAFLAG +'/caiwu/cw_4.json', chartname: ' 标题显示公司当日付款总金额'});
+                self.incomeArr5 = ko.observableArray();
+                self.incomeArr6 = ko.observableArray();
+                self.incomeArr7 = ko.observableArray();
+                self.incomeArr8 = ko.observableArray();
+                self.incomeArr9 = ko.observableArray();
+                self.incomeArr10 = ko.observableArray();
+                self.incomeArr11 = ko.observableArray();
+                self.incomeArr12 = ko.observableArray();
+                self.incomeArr13 = ko.observableArray();
 
-                $.getJSON('js/data/caiwu/cw_3.json', function (data) {
+                self.incomeArr1.push({dataurl: 'js/data/d' + DATAFLAG + '/caiwu/cw_1.json', chartname: '公司年累计收款占公司年收款计划百分比'});
+                self.incomeArr2.push({dataurl: 'js/data/d' + DATAFLAG + '/caiwu/cw_2.json', chartname: ' 公司当月累计收款占公司月收款计划百分比'});
+                $.getJSON('js/data/d' + DATAFLAG + '/caiwu/cw_3.json', function (data) {
                     self.serToolValue(data.seriesTooltip);
                     self.valToolValue(data.valueTooltip);
                     self.groupToolValue(data.groupTooltip);
                     self.pieSeriesValue(data.dataArr);
-                    self.payment3(self.caldata() + "付款总金额"  +  data.datapayment);
+                    self.payment3(self.caldata() + "付款总金额" + data.datapayment);
                 });
+                self.incomeArr4.push({dataurl: 'js/data/d' + DATAFLAG + '/caiwu/cw_4.json', chartname: ' 当日现金'});
+                self.incomeArr5.push({dataurl: 'js/data/d' + DATAFLAG + '/caiwu/cw_5.json', chartname: ' 承兑'});
+                self.incomeArr6.push({dataurl: 'js/data/d' + DATAFLAG + '/caiwu/cw_6.json', chartname: ' 外币金额占比'});
+                self.incomeArr7.push({dataurl: 'js/data/d' + DATAFLAG + '/caiwu/cw_7.json', chartname: ' 金额'});
+                self.incomeArr8.push({dataurl: 'js/data/d' + DATAFLAG + '/caiwu/cw_8.json', chartname: ' 总金额'});
+
+                self.incomeArr9.push({dataurl: 'js/data/d' + DATAFLAG + '/caiwu/cw_9.json', chartname: ' 当日现款理财'});
+                self.incomeArr10.push({dataurl: 'js/data/d' + DATAFLAG + '/caiwu/cw_10.json', chartname: ' 募集理财'});
+                self.incomeArr11.push({dataurl: 'js/data/d' + DATAFLAG + '/caiwu/cw_11.json', chartname: ' 外币理财占比'});
+                self.incomeArr12.push({dataurl: 'js/data/d' + DATAFLAG + '/caiwu/cw_12.json', chartname: ' 金额'});
+                self.incomeArr13.push({dataurl: 'js/data/d' + DATAFLAG + '/caiwu/cw_13.json', chartname: ' 总金额'});
 
 
-    
+                self.singecomplistener = function () {
+                    oj.Router.rootInstance.go('singlecomp');
+                }
                 // Below are a subset of the ViewModel methods invoked by the ojModule binding
                 // Please reference the ojModule jsDoc for additional available methods.
 

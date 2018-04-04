@@ -1,24 +1,19 @@
 {
-    "seriesTooltip": "人员",
-    "valueTooltip": "次数",
+    "datapayment": 29536.75,
+    "seriesTooltip": "",
+    "valueTooltip": "支出",
     "groupTooltip": "",
     "dataArr": [
         {
-            "name": "其他",
+            "name": "经营支出",
             "items": [
-                605
+                17533.52
             ]
         },
         {
-            "name": "装修人员",
+            "name": "投资性支出",
             "items": [
-                51
-            ]
-        },
-        {
-            "name": "业主",
-            "items": [
-                2344
+                12003.23
             ]
         }
     ]

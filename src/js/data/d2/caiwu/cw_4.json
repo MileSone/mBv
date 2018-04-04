@@ -1,24 +1,18 @@
 {
-    "seriesTooltip": "人员",
-    "valueTooltip": "次数",
+    "seriesTooltip": "",
+    "valueTooltip": "现金",
     "groupTooltip": "",
     "dataArr": [
         {
-            "name": "其他",
+            "name": "昨日现金",
             "items": [
-                605
+                5123213
             ]
         },
         {
-            "name": "装修人员",
+            "name": "当日现金",
             "items": [
-                51
-            ]
-        },
-        {
-            "name": "业主",
-            "items": [
-                2344
+                4123213
             ]
         }
     ]

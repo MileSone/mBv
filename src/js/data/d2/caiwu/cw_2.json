@@ -1,24 +1,18 @@
 {
-    "seriesTooltip": "人员",
-    "valueTooltip": "次数",
+    "seriesTooltip": "",
+    "valueTooltip": "收入",
     "groupTooltip": "",
     "dataArr": [
         {
-            "name": "其他",
+            "name": "计划月收入",
             "items": [
-                605
+                1017562.76
             ]
         },
         {
-            "name": "装修人员",
+            "name": "实际月收入",
             "items": [
-                51
-            ]
-        },
-        {
-            "name": "业主",
-            "items": [
-                2344
+                34497.74
             ]
         }
     ]

@@ -50,7 +50,7 @@ define(['ojs/ojcore', 'knockout', 'jquery', 'appController', 'ojs/ojlabel',
                     } else if (self.username().toUpperCase() === "EMPLOYEE" && self.password() === "123") {
                         self.loginSuccess(false);
                     } else {
-                        alert("请输入正确的用户名或密码（有效用户名为 manager 和 employee）");
+                        alert("请输入正确的用户名或密码");
                     }
 
                     return true;

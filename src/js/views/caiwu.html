@@ -51,6 +51,8 @@
                                           value-formats.group.tooltip-label="[[groupToolValue]]"
                                           style-defaults.pie-inner-radius="[[innerRadius]]"
                                           legend.rendered ="off"
+                                          drilling ="on"
+                                          on-oj-drill='[[singecomplistener]]'
                                           style="">
                                 </oj-chart>
                                 <p class="sub_title_sty" style="width: 100%;text-align: center;" data-bind="text: payment3"></p>
@@ -62,8 +64,37 @@
                     <div class="cw_t">公司每日资金概况</div>
                     <div class="oj-flex cwChartS" style="background-color: #c3d0ce;">
                         <div class="oj-sm-12 oj-md-12 oj-flex-item">
+                            <div class="cw_sm_title">资金余额</div>
                             <!-- ko foreach: incomeArr4 -->
-                            <my-Pie data-url="{{dataurl}}" chart-name="{{chartname}}"/>
+                            <my-botPie data-url="{{dataurl}}" chart-name="{{chartname}}"/>
+                            <!-- /ko -->
+                            <!-- ko foreach: incomeArr5 -->
+                            <my-botPie data-url="{{dataurl}}" chart-name="{{chartname}}"/>
+                            <!-- /ko -->
+                            <!-- ko foreach: incomeArr6 -->
+                            <my-botPie data-url="{{dataurl}}" chart-name="{{chartname}}"/>
+                            <!-- /ko -->
+                            <!-- ko foreach: incomeArr7 -->
+                            <my-botPie data-url="{{dataurl}}" chart-name="{{chartname}}"/>
+                            <!-- /ko -->
+                            <!-- ko foreach: incomeArr8 -->
+                            <my-botPie data-url="{{dataurl}}" chart-name="{{chartname}}"/>
+                            <!-- /ko -->
+                            <div class="cw_sm_title">理财余额</div>
+                            <!-- ko foreach: incomeArr9 -->
+                            <my-botPie data-url="{{dataurl}}" chart-name="{{chartname}}"/>
+                            <!-- /ko -->
+                            <!-- ko foreach: incomeArr10 -->
+                            <my-botPie data-url="{{dataurl}}" chart-name="{{chartname}}"/>
+                            <!-- /ko -->
+                            <!-- ko foreach: incomeArr11 -->
+                            <my-botPie data-url="{{dataurl}}" chart-name="{{chartname}}"/>
+                            <!-- /ko -->
+                            <!-- ko foreach: incomeArr12 -->
+                            <my-botPie data-url="{{dataurl}}" chart-name="{{chartname}}"/>
+                            <!-- /ko -->
+                            <!-- ko foreach: incomeArr13 -->
+                            <my-botPie data-url="{{dataurl}}" chart-name="{{chartname}}"/>
                             <!-- /ko -->
                         </div>
                     </div>

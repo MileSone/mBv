@@ -115,7 +115,7 @@ Login
 
 .loginBG input{
     color: white;
-    text-align: center;
+    padding-left: 20px;
 }
 
 
@@ -687,7 +687,6 @@ demo-chart-three-d-effect-control oj-buttonset-one , demo-chart-orientation-cont
 }
 
 .cwCell{
-    height: calc((100vh - 57px) / 3);
     min-height: 150px;
 }
 
@@ -707,4 +706,21 @@ demo-chart-three-d-effect-control oj-buttonset-one , demo-chart-orientation-cont
     border-radius: 6px;
     border-spacing: 10px;
     border-width: 3px;
+}
+
+.loginBG .labelSt{
+    text-align:right;
+    height: 40px;
+    color: white;
+    line-height: 36px;
+    font-size: 15px;
+    font-weight: 600;
+    width: 96px;
+}
+
+.cw_sm_title{
+        text-align: center;
+    font-size: 25px;
+    margin-top: 20px;
+    margin-bottom: 10px;
 }

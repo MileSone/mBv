@@ -2,6 +2,7 @@
   Copyright (c) 2015, 2017, Oracle and/or its affiliates.
   The Universal Permissive License (UPL), Version 1.0
 -->
+<p class="sub_title_sty" data-bind="text:chartName"></p>
 <div id='chart-container'>
     <oj-chart id="pieChart" class="chartStyle globChartSty"
               type="pie" 
@@ -18,7 +19,6 @@
               value-formats.group.tooltip-label="[[groupToolValue]]"
               style-defaults.pie-inner-radius="[[innerRadius]]"
               pie-center.label="[[centerLabel]]"
-              legend.rendered ="off"
               drilling ="on"
               on-oj-drill='[[listener]]'
               style="">
