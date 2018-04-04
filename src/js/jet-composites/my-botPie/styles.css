@@ -1,0 +1,7 @@
+my-littlePie:not(.oj-complete){
+  visibility: hidden;
+}
+
+my-littlePie{
+
+}
