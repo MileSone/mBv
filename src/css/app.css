@@ -728,10 +728,10 @@ demo-chart-three-d-effect-control oj-buttonset-one , demo-chart-orientation-cont
 
 .drill_title {
     float: right;
-    height: 36px;
+    height: 45px;
     font-size: 18px;
     font-weight: 600;
-    line-height: 36px;
+    line-height: 45px;
     color: #07ac02;
 }
 .oj-accordion-collapsible > .oj-collapsible-header {
@@ -754,4 +754,17 @@ demo-chart-three-d-effect-control oj-buttonset-one , demo-chart-orientation-cont
 
 oj-accordion , .oj-collapsible {
     width:100%;
+}
+
+.log_rember{
+    padding-left: 18% !important;
+    font-size: 14px;
+    color: white;
+    margin-bottom: 50px  !important;
+}
+
+.log_remCb{
+    line-height: 23px;
+    height: 23px;
+    margin: 0px 0px 0px 10px;
 }

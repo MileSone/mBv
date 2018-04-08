@@ -7,7 +7,7 @@
 /**
  * caiwu module
  */
-define(['ojs/ojcore', 'knockout', 'jquery', 'appController', 'jet-composites/my-littlePie/loader', 'jet-composites/my-botPie/loader','ojs/ojaccordion', 'ojs/ojradioset', 'ojs/ojlabel'],
+define(['ojs/ojcore', 'knockout', 'jquery', 'appController', 'jet-composites/my-littlePie/loader', 'jet-composites/my-botPie/loader', 'ojs/ojaccordion', 'ojs/ojradioset', 'ojs/ojlabel', 'ojs/ojlegend'],
         function (oj, ko, $, app) {
             /**
              * The view model for the main content view template
@@ -41,6 +41,11 @@ define(['ojs/ojcore', 'knockout', 'jquery', 'appController', 'jet-composites/my-
                 self.incomeArr12 = ko.observableArray();
                 self.incomeArr13 = ko.observableArray();
 
+                self.legendSections = ko.observableArray([{items: [
+                            {text: "计划收入", color: "#267db3", markerShape: "square"},
+                            {text: "实际收入", color: "#68c182", markerShape: "square"}
+                        ]}]);
+
                 self.init = function () {
                     self.incomeArr1.removeAll();
                     self.incomeArr2.removeAll();
@@ -55,7 +60,8 @@ define(['ojs/ojcore', 'knockout', 'jquery', 'appController', 'jet-composites/my-
                     self.incomeArr11.removeAll();
                     self.incomeArr12.removeAll();
                     self.incomeArr13.removeAll();
-                    
+
+
                     self.incomeArr1.push({dataurl: 'js/data/d' + DATAFLAG + '/caiwu/cw_1.json', chartname: '公司年累计收款占公司年收款计划百分比'});
                     self.incomeArr2.push({dataurl: 'js/data/d' + DATAFLAG + '/caiwu/cw_2.json', chartname: ' 公司当月累计收款占公司月收款计划百分比'});
                     $.getJSON('js/data/d' + DATAFLAG + '/caiwu/cw_3.json', function (data) {
@@ -63,8 +69,11 @@ define(['ojs/ojcore', 'knockout', 'jquery', 'appController', 'jet-composites/my-
                         self.valToolValue(data.valueTooltip);
                         self.groupToolValue(data.groupTooltip);
                         self.pieSeriesValue(data.dataArr);
-                        self.payment3(self.caldata() + "付款总金额" + data.datapayment);
+                        self.payment3(CURDATE + "付款总金额" + data.datapayment);
                     });
+
+
+
                     self.incomeArr4.push({dataurl: 'js/data/d' + DATAFLAG + '/caiwu/cw_4.json', chartname: ' 当日现金'});
                     self.incomeArr5.push({dataurl: 'js/data/d' + DATAFLAG + '/caiwu/cw_5.json', chartname: ' 承兑'});
                     self.incomeArr6.push({dataurl: 'js/data/d' + DATAFLAG + '/caiwu/cw_6.json', chartname: ' 外币金额占比'});
@@ -110,6 +119,7 @@ define(['ojs/ojcore', 'knockout', 'jquery', 'appController', 'jet-composites/my-
                  */
                 self.handleAttached = function (info) {
                     self.init();
+                    CURDATE = oj.IntlConverterUtils.dateToLocalIso(new Date()).substring(0, 10);
                 };
 
 
@@ -138,6 +148,7 @@ define(['ojs/ojcore', 'knockout', 'jquery', 'appController', 'jet-composites/my-
                 };
 
                 self.dateChangeHandler = function (event) {
+
                     CURDATE = event.detail.value;
                     DATAFLAG = (DATAFLAG == "1") ? "2" : "1";
                     self.init();
