@@ -16,7 +16,10 @@ define(['ojs/ojcore', 'knockout', 'jquery', 'appController', 'ojs/ojbutton', 'oj
                 var self = this;
 
                 // Header Config
-                self.headerConfig = {'viewName': 'header', 'viewModelFactory': app.getHeaderModel()};
+                //self.headerConfig = {'viewName': 'header', 'viewModelFactory': app.getHeaderModel()};
+                self.toggleDrawer = app.toggleDrawer;
+                self.pageTitle = ko.observable('公司分板块每日收款明细');
+                self.dateValue = ko.observable(CURDATE);
 
                 self.bkdata1 = ko.observableArray();
                 self.bkdata2 = ko.observableArray();
@@ -27,11 +30,12 @@ define(['ojs/ojcore', 'knockout', 'jquery', 'appController', 'ojs/ojbutton', 'oj
                 };
 
                 self.init = function () {
-                    //self.bkdata1.removeALl();
-                    self.bkdata1.push({dataurl: 'js/data/d' + DATAFLAG +'/caiwu/income/bankuai/bkdata_1.json', chartname: '年累计收款与年计划对比情况'});
-
-//                self.bkdata2.push({dataurl: 'js/data/d' + DATAFLAG +'/caiwu/income/bankuai/bkdata_2.json', chartname: '月累计收款与月计划对比情况'});
-//                self.bkdata3.push({dataurl: 'js/data/d' + DATAFLAG +'/caiwu/income/bankuai/bkdata_3.json', chartname: '当日收款情况'});
+                    self.bkdata1.removeAll();
+                    self.bkdata2.removeAll();
+                    self.bkdata3.removeAll();
+                    self.bkdata1.push({dataurl: 'js/data/d' + DATAFLAG + '/caiwu/income/bankuai/bkdata_1.json', chartname: '年累计收款与年计划对比情况'});
+                    self.bkdata2.push({dataurl: 'js/data/d' + DATAFLAG + '/caiwu/income/bankuai/bkdata_2.json', chartname: '月累计收款与月计划对比情况'});
+                    self.bkdata3.push({dataurl: 'js/data/d' + DATAFLAG + '/caiwu/income/bankuai/bkdata_3.json', chartname: '当日收款情况'});
                 };
 
                 // Below are a subset of the ViewModel methods invoked by the ojModule binding
@@ -76,6 +80,7 @@ define(['ojs/ojcore', 'knockout', 'jquery', 'appController', 'ojs/ojbutton', 'oj
                  */
                 self.handleBindingsApplied = function (info) {
                     // Implement if needed
+                    app.adjustContentPadding();
                 };
 
                 /*
@@ -89,6 +94,12 @@ define(['ojs/ojcore', 'knockout', 'jquery', 'appController', 'ojs/ojbutton', 'oj
                 self.handleDetached = function (info) {
                     // Implement if needed
                 };
+
+                self.dateChangeHandler = function (event) {
+                    CURDATE = event.detail.value;
+                    DATAFLAG = (DATAFLAG == "1") ? "2" : "1";
+                    self.init();
+                }
             }
 
             return bankuaiContentViewModel;

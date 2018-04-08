@@ -104,7 +104,6 @@ define(['ojs/ojcore', 'knockout', 'ojs/ojrouter', 'ojs/ojarraytabledatasource', 
 
                 self.dateChangeHandler = function () {
                     DATAFLAG = (DATAFLAG == "1") ? "2" : "1";
-                    //bankuai.init();
                 }
             }
 
