@@ -22,10 +22,12 @@ define(['ojs/ojcore', 'knockout', 'jquery', 'appController', 'jet-composites/my-
                 self.payment3 = ko.observable("");
                 self.caldata = ko.observable("");
                 // Header Config
-                self.headerConfig = {'viewName': 'header', 'viewModelFactory': app.getHeaderModel()};
+                //self.headerConfig = {'viewName': 'header', 'viewModelFactory': app.getHeaderModel()};
+                self.toggleDrawer = app.toggleDrawer;
+                self.pageTitle = ko.observable('财务收支分析');
+                self.dateValue = ko.observable(CURDATE);
 
                 self.incomeArr1 = ko.observableArray();
-
                 self.incomeArr2 = ko.observableArray();
                 self.incomeArr3 = ko.observableArray();
                 self.incomeArr4 = ko.observableArray();
@@ -39,27 +41,42 @@ define(['ojs/ojcore', 'knockout', 'jquery', 'appController', 'jet-composites/my-
                 self.incomeArr12 = ko.observableArray();
                 self.incomeArr13 = ko.observableArray();
 
-                self.incomeArr1.push({dataurl: 'js/data/d' + DATAFLAG + '/caiwu/cw_1.json', chartname: '公司年累计收款占公司年收款计划百分比'});
-                self.incomeArr2.push({dataurl: 'js/data/d' + DATAFLAG + '/caiwu/cw_2.json', chartname: ' 公司当月累计收款占公司月收款计划百分比'});
-                $.getJSON('js/data/d' + DATAFLAG + '/caiwu/cw_3.json', function (data) {
-                    self.serToolValue(data.seriesTooltip);
-                    self.valToolValue(data.valueTooltip);
-                    self.groupToolValue(data.groupTooltip);
-                    self.pieSeriesValue(data.dataArr);
-                    self.payment3(self.caldata() + "付款总金额" + data.datapayment);
-                });
-                self.incomeArr4.push({dataurl: 'js/data/d' + DATAFLAG + '/caiwu/cw_4.json', chartname: ' 当日现金'});
-                self.incomeArr5.push({dataurl: 'js/data/d' + DATAFLAG + '/caiwu/cw_5.json', chartname: ' 承兑'});
-                self.incomeArr6.push({dataurl: 'js/data/d' + DATAFLAG + '/caiwu/cw_6.json', chartname: ' 外币金额占比'});
-                self.incomeArr7.push({dataurl: 'js/data/d' + DATAFLAG + '/caiwu/cw_7.json', chartname: ' 金额'});
-                self.incomeArr8.push({dataurl: 'js/data/d' + DATAFLAG + '/caiwu/cw_8.json', chartname: ' 总金额'});
+                self.init = function () {
+                    self.incomeArr1.removeAll();
+                    self.incomeArr2.removeAll();
+                    self.incomeArr3.removeAll();
+                    self.incomeArr4.removeAll();
+                    self.incomeArr5.removeAll();
+                    self.incomeArr6.removeAll();
+                    self.incomeArr7.removeAll();
+                    self.incomeArr8.removeAll();
+                    self.incomeArr9.removeAll();
+                    self.incomeArr10.removeAll();
+                    self.incomeArr11.removeAll();
+                    self.incomeArr12.removeAll();
+                    self.incomeArr13.removeAll();
+                    
+                    self.incomeArr1.push({dataurl: 'js/data/d' + DATAFLAG + '/caiwu/cw_1.json', chartname: '公司年累计收款占公司年收款计划百分比'});
+                    self.incomeArr2.push({dataurl: 'js/data/d' + DATAFLAG + '/caiwu/cw_2.json', chartname: ' 公司当月累计收款占公司月收款计划百分比'});
+                    $.getJSON('js/data/d' + DATAFLAG + '/caiwu/cw_3.json', function (data) {
+                        self.serToolValue(data.seriesTooltip);
+                        self.valToolValue(data.valueTooltip);
+                        self.groupToolValue(data.groupTooltip);
+                        self.pieSeriesValue(data.dataArr);
+                        self.payment3(self.caldata() + "付款总金额" + data.datapayment);
+                    });
+                    self.incomeArr4.push({dataurl: 'js/data/d' + DATAFLAG + '/caiwu/cw_4.json', chartname: ' 当日现金'});
+                    self.incomeArr5.push({dataurl: 'js/data/d' + DATAFLAG + '/caiwu/cw_5.json', chartname: ' 承兑'});
+                    self.incomeArr6.push({dataurl: 'js/data/d' + DATAFLAG + '/caiwu/cw_6.json', chartname: ' 外币金额占比'});
+                    self.incomeArr7.push({dataurl: 'js/data/d' + DATAFLAG + '/caiwu/cw_7.json', chartname: ' 金额'});
+                    self.incomeArr8.push({dataurl: 'js/data/d' + DATAFLAG + '/caiwu/cw_8.json', chartname: ' 总金额'});
 
-                self.incomeArr9.push({dataurl: 'js/data/d' + DATAFLAG + '/caiwu/cw_9.json', chartname: ' 当日现款理财'});
-                self.incomeArr10.push({dataurl: 'js/data/d' + DATAFLAG + '/caiwu/cw_10.json', chartname: ' 募集理财'});
-                self.incomeArr11.push({dataurl: 'js/data/d' + DATAFLAG + '/caiwu/cw_11.json', chartname: ' 外币理财占比'});
-                self.incomeArr12.push({dataurl: 'js/data/d' + DATAFLAG + '/caiwu/cw_12.json', chartname: ' 金额'});
-                self.incomeArr13.push({dataurl: 'js/data/d' + DATAFLAG + '/caiwu/cw_13.json', chartname: ' 总金额'});
-
+                    self.incomeArr9.push({dataurl: 'js/data/d' + DATAFLAG + '/caiwu/cw_9.json', chartname: ' 当日现款理财'});
+                    self.incomeArr10.push({dataurl: 'js/data/d' + DATAFLAG + '/caiwu/cw_10.json', chartname: ' 募集理财'});
+                    self.incomeArr11.push({dataurl: 'js/data/d' + DATAFLAG + '/caiwu/cw_11.json', chartname: ' 外币理财占比'});
+                    self.incomeArr12.push({dataurl: 'js/data/d' + DATAFLAG + '/caiwu/cw_12.json', chartname: ' 金额'});
+                    self.incomeArr13.push({dataurl: 'js/data/d' + DATAFLAG + '/caiwu/cw_13.json', chartname: ' 总金额'});
+                }
 
                 self.singecomplistener = function () {
                     oj.Router.rootInstance.go('singlecomp');
@@ -79,7 +96,7 @@ define(['ojs/ojcore', 'knockout', 'jquery', 'appController', 'jet-composites/my-
                  * the promise is resolved
                  */
                 self.handleActivated = function (info) {
-                    // Implement if needed
+                    self.init();
                 };
 
                 /**
@@ -92,7 +109,7 @@ define(['ojs/ojcore', 'knockout', 'jquery', 'appController', 'jet-composites/my-
                  * @param {boolean} info.fromCache - A boolean indicating whether the module was retrieved from cache.
                  */
                 self.handleAttached = function (info) {
-                    // Implement if needed
+                    self.init();
                 };
 
 
@@ -105,7 +122,7 @@ define(['ojs/ojcore', 'knockout', 'jquery', 'appController', 'jet-composites/my-
                  * @param {Function} info.valueAccessor - The binding's value accessor.
                  */
                 self.handleBindingsApplied = function (info) {
-                    // Implement if needed
+                    app.adjustContentPadding();
                 };
 
                 /*
@@ -119,6 +136,12 @@ define(['ojs/ojcore', 'knockout', 'jquery', 'appController', 'jet-composites/my-
                 self.handleDetached = function (info) {
                     // Implement if needed
                 };
+
+                self.dateChangeHandler = function (event) {
+                    CURDATE = event.detail.value;
+                    DATAFLAG = (DATAFLAG == "1") ? "2" : "1";
+                    self.init();
+                }
             }
 
             return caiwuContentViewModel;

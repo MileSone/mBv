@@ -9,7 +9,20 @@
          ** Please see the Oracle JET Cookbook App Shell: Hybrid Mobile demos for
          ** more information on how to use this pattern.
         -->
-        <header role="banner" class="oj-hybrid-applayout-header" data-bind="ojModule: headerConfig">
+        <header role="banner" class="oj-hybrid-applayout-header">
+            <div class="oj-flex-bar-start">
+                <oj-button id="drawerToggleButton" on-click="[[toggleDrawer]]" chroming="half" display="icons">
+                    <span slot="startIcon" class="oj-fwk-icon oj-fwk-icon-hamburger"></span>
+                    <span>Navigation Drawer</span>
+                </oj-button>
+            </div>
+            <div role="heading" class="oj-hybrid-applayout-bar-title">
+                <h1 class="oj-hybrid-applayout-header-title" data-bind="text: pageTitle"></h1>
+            </div>
+            <div class="oj-flex-bar-end">
+                <oj-input-date id="headerDate" class="calenIcon" value='{{dateValue}}' on-value-changed="[[dateChangeHandler]]">
+                </oj-input-date>
+            </div>
         </header>
     </div>
     <!-- This is where your main page content will be loaded -->
