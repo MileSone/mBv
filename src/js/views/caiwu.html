@@ -18,7 +18,7 @@
             <div class="oj-hybrid-padding">
                 <div class="cwCell">
                     <div class="cw_t">公司每日收款概况</div>
-                    <div class="cTCell  oj-flex cwChartS" style="background-color: #969edc;">
+                    <div class="cTCell  oj-flex cwChartS" style="background-color: #fdebff;">
                         <div class="oj-sm-6 oj-md-6  oj-flex-item">
                             <!-- ko foreach: incomeArr1 -->
                             <my-littlePie data-url="{{dataurl}}" chart-name="{{chartname}}"/>
@@ -33,7 +33,7 @@
                 </div>
                 <div class="cwCell">
                     <div class="cw_t">公司每日付款概况</div>
-                    <div class="cTCell oj-flex cwChartS" style="background-color: #d2dab0;">
+                    <div class="cTCell oj-flex cwChartS" style="background-color: #dce5ff;">
                         <div class="oj-sm-12 oj-md-12 oj-flex-item">
                             <div id='chart-containerS'>
                                 <oj-chart id="pieChartE" class="chartStyle globChartSty"
@@ -62,41 +62,45 @@
                 </div>
                 <div class="cwCell">
                     <div class="cw_t">公司每日资金概况</div>
-                    <div class="oj-flex cwChartS" style="background-color: #c3d0ce;">
-                        <div class="oj-sm-12 oj-md-12 oj-flex-item">
-                            <div class="cw_sm_title">资金余额</div>
-                            <!-- ko foreach: incomeArr4 -->
-                            <my-botPie data-url="{{dataurl}}" chart-name="{{chartname}}"/>
-                            <!-- /ko -->
-                            <!-- ko foreach: incomeArr5 -->
-                            <my-botPie data-url="{{dataurl}}" chart-name="{{chartname}}"/>
-                            <!-- /ko -->
-                            <!-- ko foreach: incomeArr6 -->
-                            <my-botPie data-url="{{dataurl}}" chart-name="{{chartname}}"/>
-                            <!-- /ko -->
-                            <!-- ko foreach: incomeArr7 -->
-                            <my-botPie data-url="{{dataurl}}" chart-name="{{chartname}}"/>
-                            <!-- /ko -->
-                            <!-- ko foreach: incomeArr8 -->
-                            <my-botPie data-url="{{dataurl}}" chart-name="{{chartname}}"/>
-                            <!-- /ko -->
-                            <div class="cw_sm_title">理财余额</div>
-                            <!-- ko foreach: incomeArr9 -->
-                            <my-botPie data-url="{{dataurl}}" chart-name="{{chartname}}"/>
-                            <!-- /ko -->
-                            <!-- ko foreach: incomeArr10 -->
-                            <my-botPie data-url="{{dataurl}}" chart-name="{{chartname}}"/>
-                            <!-- /ko -->
-                            <!-- ko foreach: incomeArr11 -->
-                            <my-botPie data-url="{{dataurl}}" chart-name="{{chartname}}"/>
-                            <!-- /ko -->
-                            <!-- ko foreach: incomeArr12 -->
-                            <my-botPie data-url="{{dataurl}}" chart-name="{{chartname}}"/>
-                            <!-- /ko -->
-                            <!-- ko foreach: incomeArr13 -->
-                            <my-botPie data-url="{{dataurl}}" chart-name="{{chartname}}"/>
-                            <!-- /ko -->
-                        </div>
+                    <div class="oj-flex cwChartS" style="background-color: #dcfffa;">
+                        <oj-accordion id="accordionPage" >
+                            <oj-collapsible id="c1" expanded="true">
+                                <span slot="header"><span class="cw_sm_title">资金余额</span></span>
+                                <!-- ko foreach: incomeArr4 -->
+                                <my-botPie data-url="{{dataurl}}" chart-name="{{chartname}}"/>
+                                <!-- /ko -->
+                                <!-- ko foreach: incomeArr5 -->
+                                <my-botPie data-url="{{dataurl}}" chart-name="{{chartname}}"/>
+                                <!-- /ko -->
+                                <!-- ko foreach: incomeArr6 -->
+                                <my-botPie data-url="{{dataurl}}" chart-name="{{chartname}}"/>
+                                <!-- /ko -->
+                                <!-- ko foreach: incomeArr7 -->
+                                <my-botPie data-url="{{dataurl}}" chart-name="{{chartname}}"/>
+                                <!-- /ko -->
+                                <!-- ko foreach: incomeArr8 -->
+                                <my-botPie data-url="{{dataurl}}" chart-name="{{chartname}}"/>
+                                <!-- /ko -->
+                            </oj-collapsible>
+                            <oj-collapsible id="c2" expanded="true">
+                                <span slot="header"><span class="cw_sm_title">理财余额</span></span>
+                                <!-- ko foreach: incomeArr9 -->
+                                <my-botPie data-url="{{dataurl}}" chart-name="{{chartname}}"/>
+                                <!-- /ko -->
+                                <!-- ko foreach: incomeArr10 -->
+                                <my-botPie data-url="{{dataurl}}" chart-name="{{chartname}}"/>
+                                <!-- /ko -->
+                                <!-- ko foreach: incomeArr11 -->
+                                <my-botPie data-url="{{dataurl}}" chart-name="{{chartname}}"/>
+                                <!-- /ko -->
+                                <!-- ko foreach: incomeArr12 -->
+                                <my-botPie data-url="{{dataurl}}" chart-name="{{chartname}}"/>
+                                <!-- /ko -->
+                                <!-- ko foreach: incomeArr13 -->
+                                <my-botPie data-url="{{dataurl}}" chart-name="{{chartname}}"/>
+                                <!-- /ko -->
+                            </oj-collapsible>
+                        </oj-accordion>
                     </div>
                 </div>
             </div>

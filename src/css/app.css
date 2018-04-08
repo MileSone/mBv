@@ -719,8 +719,31 @@ demo-chart-three-d-effect-control oj-buttonset-one , demo-chart-orientation-cont
 }
 
 .cw_sm_title{
-        text-align: center;
+    text-align: center;
     font-size: 25px;
     margin-top: 20px;
     margin-bottom: 10px;
+    width: calc(100% - 64px);
+}
+
+.oj-accordion-collapsible > .oj-collapsible-header {
+    padding-top: 3px;
+    padding-bottom: 3px;
+    border: none;
+    /* border-width: 0 0 1px; */
+    font-size: 1.25rem;
+    background-color: transparent;
+}
+
+.oj-hybrid-applayout-offcanvas {
+    width: 70%;
+    max-width: 320px;
+    box-sizing: border-box;
+    background-color: #313334;
+    color: #ffffff;
+    box-shadow: 3px 2px 7px rgba(0, 0, 0, 0.5);
+}
+
+oj-accordion , .oj-collapsible {
+    width:100%;
 }

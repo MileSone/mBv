@@ -43,9 +43,9 @@ define(['ojs/ojcore', 'knockout', 'ojs/ojrouter', 'ojs/ojarraytabledatasource', 
                 var navData = [
                     {name: '主页', id: 'home',
                         iconClass: 'oj-navigationlist-item-icon demo-icon-font-24 demo-home-icon-24'},
-                    {name: '营销分析', id: 'yingxiao',
-                        iconClass: 'oj-navigationlist-item-icon demo-icon-font-24 demo-chart-icon-24'},
                     {name: '财务收支分析', id: 'caiwu',
+                        iconClass: 'oj-navigationlist-item-icon demo-icon-font-24 demo-chart-icon-24'},
+                    {name: '营销分析', id: 'yingxiao',
                         iconClass: 'oj-navigationlist-item-icon demo-icon-font-24 demo-chart-icon-24'},
                     {name: '登出', id: 'login',
                         iconClass: 'oj-navigationlist-item-icon demo-icon-font-24 demo-signout-icon-24'}

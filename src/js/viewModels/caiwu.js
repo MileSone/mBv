@@ -7,7 +7,7 @@
 /**
  * caiwu module
  */
-define(['ojs/ojcore', 'knockout', 'jquery', 'appController', 'jet-composites/my-littlePie/loader', 'jet-composites/my-botPie/loader'],
+define(['ojs/ojcore', 'knockout', 'jquery', 'appController', 'jet-composites/my-littlePie/loader', 'jet-composites/my-botPie/loader','ojs/ojaccordion', 'ojs/ojradioset', 'ojs/ojlabel'],
         function (oj, ko, $, app) {
             /**
              * The view model for the main content view template

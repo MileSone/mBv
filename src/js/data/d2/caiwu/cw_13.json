@@ -1,18 +1,25 @@
 {
     "seriesTooltip": "",
-    "valueTooltip": "现金",
+    "valueTooltip": "金额",
     "groupTooltip": "",
     "dataArr": [
         {
-            "name": "昨日现金",
+            "name": "现款理财",
             "items": [
-                5123213
+                30000000
             ]
         },
         {
-            "name": "当日现金",
+            "name": "募集理财",
             "items": [
-                4123213
+                5200000
+            ]
+        }
+        ,
+        {
+            "name": "外币理财",
+            "items": [
+                10000
             ]
         }
     ]

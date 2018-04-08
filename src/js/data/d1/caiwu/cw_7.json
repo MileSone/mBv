@@ -1,18 +1,18 @@
 {
     "seriesTooltip": "",
-    "valueTooltip": "现金",
+    "valueTooltip": "金额",
     "groupTooltip": "",
     "dataArr": [
         {
-            "name": "昨日现金",
+            "name": "平均日金额",
             "items": [
-                5123213
+                4123213
             ]
         },
         {
-            "name": "当日现金",
+            "name": "当日金额",
             "items": [
-                4123213
+                3623213
             ]
         }
     ]
