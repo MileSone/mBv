@@ -1,34 +1,25 @@
 {
     "seriesTooltip": "",
-    "valueTooltip": "次数",
-    "groupTooltip": "日期",
-    "series": [
+    "valueTooltip": "收款",
+    "groupTooltip": "类别",
+    "dataArr": [
         {
-            "name": "出入次数",
+            "name": "现款",
             "items": [
-                462,
-                982,
-                1006,
-                513,
-                37
+                462
             ]
         },
         {
-            "name": "出入人数",
+            "name": "承兑",
             "items": [
-                345,
-                648,
-                661,
-                346,
-                28
+                345
+            ]
+        },
+        {
+            "name": "外币",
+            "items": [
+                345
             ]
         }
-    ],
-    "groups": [
-        "2017-15",
-        "2017-16",
-        "2017-17",
-        "2017-18",
-        "2017-19"
     ]
 }

@@ -7,7 +7,7 @@
 /**
  * singlecomp module
  */
-define(['ojs/ojcore', 'knockout', 'jquery', 'appController', 'ojs/ojbutton', 'ojs/ojrouter', 'jet-composites/my-bar/loader'],
+define(['ojs/ojcore', 'knockout', 'jquery', 'appController', 'ojs/ojbutton', 'ojs/ojrouter', 'jet-composites/my-pie/loader'],
         function (oj, ko, $, app) {
             /**
              * The view model for the main content view template
@@ -31,9 +31,9 @@ define(['ojs/ojcore', 'knockout', 'jquery', 'appController', 'ojs/ojbutton', 'oj
                     self.scdata1.removeAll();
                     self.scdata2.removeAll();
                     self.scdata3.removeAll();
-                    self.scdata1.push({dataurl: 'js/data/d' + DATAFLAG + '/caiwu/income/singlecompany/sincdata_1.json', chartname: '各子公司年累计收款与年计划对比情况'});
-                    self.scdata2.push({dataurl: 'js/data/d' + DATAFLAG + '/caiwu/income/singlecompany/sincdata_2.json', chartname: '月累计收款与月计划对比情况'});
-                    self.scdata3.push({dataurl: 'js/data/d' + DATAFLAG + '/caiwu/income/singlecompany/sincdata_3.json', chartname: '当日收款情况'});
+                    self.scdata1.push({dataurl: 'js/data/d' + DATAFLAG + '/caiwu/income/singlecompany/sincdata_1.json', chartname: '当日分类收款比例'});
+                    self.scdata2.push({dataurl: 'js/data/d' + DATAFLAG + '/caiwu/income/singlecompany/sincdata_2.json', chartname: '当月分类收款比例'});
+                    self.scdata3.push({dataurl: 'js/data/d' + DATAFLAG + '/caiwu/income/singlecompany/sincdata_3.json', chartname: '当年分类收款比例'});
                 };
 
                 // Below are a subset of the ViewModel methods invoked by the ojModule binding
