@@ -18,6 +18,7 @@ define(['ojs/ojcore', 'knockout', 'jquery', 'appController', 'ojs/ojbutton', 'oj
                 self.toggleDrawer = app.toggleDrawer;
                 self.pageTitle = ko.observable('单个子公司每日收款分类明细');
                 self.dateValue = ko.observable(CURDATE);
+                self.subcompsName = app.subcompsName();
 
                 self.scdata1 = ko.observableArray();
                 self.scdata2 = ko.observableArray();

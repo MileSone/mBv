@@ -30,6 +30,7 @@
         <div role="main" class="oj-hybrid-applayout-content">
             <div class="oj-hybrid-padding">
                 <oj-button id='button1back' on-click='[[backBtn]]'>Back</oj-button>
+                <span class="drill_title" data-bind="text: subcompsName"></span>
 
                 <!-- ko foreach: scdata1 -->
                 <my-pie data-url="{{dataurl}}" chart-name="{{chartname}}"/>

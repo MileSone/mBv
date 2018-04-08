@@ -18,6 +18,9 @@ define(['ojs/ojcore', 'knockout', 'ojs/ojrouter', 'ojs/ojarraytabledatasource', 
                 self.large = oj.ResponsiveKnockoutUtils.createMediaQueryObservable(lgQuery);
                 self.isLoggedIn = ko.observable(false);
                 self.initDateValue = ko.observable(oj.IntlConverterUtils.dateToLocalIso(new Date(2018, 04, 01)));
+                self.bankuaiName = ko.observable('');
+                self.subcompsName = ko.observable('');
+
                 // Router setup
                 self.router = oj.Router.rootInstance;
 

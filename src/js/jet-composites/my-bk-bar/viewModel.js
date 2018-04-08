@@ -3,7 +3,7 @@
  The Universal Permissive License (UPL), Version 1.0
  */
 define(
-        ['ojs/ojcore', 'knockout', 'jquery', 'ojs/ojchart','jet-composites/demo-chart-orientation-control/loader', 'ojs/ojrouter'], function (oj, ko, $) {
+        ['ojs/ojcore', 'knockout', 'jquery', 'appController', 'ojs/ojchart', 'jet-composites/demo-chart-orientation-control/loader', 'ojs/ojrouter'], function (oj, ko, $, app) {
     'use strict';
 
     function ExampleComponentModel(context) {
@@ -17,7 +17,8 @@ define(
         self.seriesValue = ko.observableArray();
         self.groupsValue = ko.observableArray();
 
-        self.listener = function () {
+        self.listener = function (data) {
+            app.bankuaiName(data.detail.group);
             oj.Router.rootInstance.go('subcomps');
         }
 
@@ -27,7 +28,7 @@ define(
         self.serToolValue = ko.observable();
         self.valToolValue = ko.observable();
         self.groupToolValue = ko.observable();
-        self.yref=ko.observableArray();
+        self.yref = ko.observableArray();
         context.props.then(function (propertyMap) {
             //Store a reference to the properties for any later use
             self.properties = propertyMap;

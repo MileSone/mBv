@@ -726,6 +726,14 @@ demo-chart-three-d-effect-control oj-buttonset-one , demo-chart-orientation-cont
     width: calc(100% - 64px);
 }
 
+.drill_title {
+    float: right;
+    height: 36px;
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 36px;
+    color: #07ac02;
+}
 .oj-accordion-collapsible > .oj-collapsible-header {
     padding-top: 3px;
     padding-bottom: 3px;

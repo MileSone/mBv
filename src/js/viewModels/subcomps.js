@@ -19,6 +19,7 @@ define(['ojs/ojcore', 'knockout', 'jquery', 'appController', 'ojs/ojbutton', 'oj
                 self.toggleDrawer = app.toggleDrawer;
                 self.pageTitle = ko.observable('子公司集合每日收款明细');
                 self.dateValue = ko.observable(CURDATE);
+                self.bankuaiName = app.bankuaiName();
 
                 self.scdata1 = ko.observableArray();
                 self.scdata2 = ko.observableArray();
