@@ -5,9 +5,9 @@
 /*
  * Your about ViewModel code goes here
  */
-define(['ojs/ojcore', 'knockout', 'jquery', 'appController', 'ojs/ojlabel',
-    'ojs/ojinputtext', 'ojs/ojbutton', 'ojs/ojrouter'],
-        function (oj, ko, $, app) {
+define(['ojs/ojcore', 'knockout', 'jquery', 'appController', 'mbe/mbe', 'mcs_config', 'ojs/ojlabel',
+    'ojs/ojinputtext', 'ojs/ojbutton', 'ojs/ojrouter', 'data/globVar'],
+        function (oj, ko, $, app, mbe) {
 
             function LoginViewModel() {
                 var self = this;
@@ -23,18 +23,180 @@ define(['ojs/ojcore', 'knockout', 'jquery', 'appController', 'ojs/ojlabel',
                 var remPass = localStorage.getItem("savedPassword");
 
                 if (remState === true && remUsername != "" && remPass != "") {
-                    self.username(localStorage.getItem("remUsername"));
-                    self.password(localStorage.getItem("savedPassword"));
+                    self.username(remUsername);
+                    self.password(remPass);
                     $("#remeberMe").attr("checked", true);
                 } else {
                     $("#remeberMe").attr("checked", false);
                 }
 
+
+                self.baiduAPIKey = ko.observable("opciWAuRm9DmiFMLcfNGvwtF"); //Baidu Push API Key
+
+                self.isLoggedIn = ko.observable(false);
+                self.isLoadingfinished = ko.observable(false);
+//                self.username_MCS = ko.observable("mingyao.zhu@oracle.com");
+//                self.password_MCS = ko.observable("zaq1!QAZ");
+                self.registrationId = ko.observable("");
+
+                self.handleAttached = function (info) {
+                };
+
+
+                self.login = function (data, event) {
+                    self.isLoadingfinished(true);
+//                    mbe.authenticate(self.username(), self.password().then(self.loginSuccess, self.loginFailure));
+                    return true;
+                };
+
+                self.loginSuccess = function (response, data) {
+                    console.log(response);
+
+                    mbe.isLoggedIn = true;
+                    self.isLoggedIn(true);
+                    loginCustomerID = self.username();
+                    oj.Router.rootInstance.go('home');
+                    self.baiduPushStart();
+                    app.isLoggedIn(true);
+                    userName = self.username();
+                    userCheck = data;
+                };
+
+                self.loginFailure = function (statusCode, data) {
+                    mbe.isLoggedIn = false;
+                    self.isLoggedIn(mbe.isLoggedIn);
+                    alert("Login failed! statusCode:" + statusCode + " Message: " + data);
+                };
+
+                self.logout = function () {
+                    mbe.logout();
+                    mbe.isLoggedIn = false;
+                    self.isLoggedIn(false);
+                    //    oj.Router.rootInstance.go('dashboard');
+                    window.location.reload(true);
+                };
+
+                var api_key = 'opciWAuRm9DmiFMLcfNGvwtF' //Baidu Push API Key
+
+//                document.addEventListener("deviceready", function () {
+                self.baiduPushStart = function () {
+                    window.baiduPush.onMessage(function (result) {
+                        console.log('onMessage success', result);
+                    }, function (error) {
+                        console.error('onMessage fail', error);
+                    })
+
+                    window.baiduPush.onNotificationClicked(function (result) {
+                        console.log('onNotificationClicked success', result);
+                        var tempData = result.data.description;
+                        try {
+                            console.log(tempData);
+                        } catch (e) {
+                            console.log("no ID in notification");
+                        }
+                    }, function (error) {
+                        console.error('onNotificationClicked fail', error);
+                    })
+
+                    window.baiduPush.onNotificationArrived(function (result) {
+                        console.log('onNotificationArrived success', result);
+
+                    }, function (error) {
+                        console.error('onNotificationArrived fail', error);
+                    })
+
+                    window.baiduPush.startWork(api_key, function (result) {
+                        console.log('startWork success', result);
+                        if (result.data.channelId) {
+                            console.log("ChannelID:" + result.data.channelId);
+                        }
+                    }, function (error) {
+                        console.error('startWork fail', error);
+                    })
+                };
+//                }, false);
+
+
+//
+//                self.baiduPushStart = function () {
+//                    //Start work, bind the ids
+//                    window.baidupush.startWork(self.baiduAPIKey(), function (info) {
+//                        //success callback
+//                        //your code here
+//                        if (info.data.channelId) {
+//                            console.log(info.data.channelId);
+////                            self.baiduChannelId(info.data.channelId);
+//                            self.registrationId(info.data.channelId);
+//
+//                            var sendData = {
+//                                "username": loginCustomerID,
+//                                "channelId": info.data.channelId + ""
+//                            };
+//
+//                            var r = confirm("send channelID!");
+//                            if (r == true) {
+//                                mbe.invokeCustomAPI("mynotification/channelid", "POST", sendData, function (statusCode, data) {
+//                                    if (data) {
+//                                        alert(JSON.stringify(data));
+//                                    }
+//                                }, self.errorCallback);
+//                            } else {
+//
+//                            }
+//                        }
+//                    });
+//
+//                    //Set tags
+//                    window.baidupush.setTags(["testDrve"], function (info) {
+//                        //your code here
+//                    });
+//
+//                    //Listen notification arrived event, when a notification arrived, the callback function will be called
+//                    window.baidupush.listenNotificationArrived(function (info) {
+//                        //your code here
+//                        self.notiMessage(data.message);
+//                        var tempData = data.message;
+//                        try {
+////                            var tempArr = new Array();
+////                            tempArr = tempData.split("-");
+//                            console.log(tempData);
+////                            var getID = parseInt(tempArr[1].trim());
+////                            oj.Router.rootInstance.go('offers');
+////                            offers.notiOfferPage(getID);
+//                        } catch (e) {
+//                            console.log("no ID in notification");
+//                        }
+//                    });
+//
+//
+//                    //Listen notification clicked event, when a notification is clicked, the callback function will be called
+//                    window.baidupush.listenNotificationClicked(function (info) {
+//                        //your code here
+//                    });
+//
+//                    //Only for android
+//                    //Listen message arrived event, when a message arrived, the callback function will be called	
+//                    window.baidupush.listenMessage(function (info) {
+//                        //your code here
+//                    });
+//                };
+//
+//                self.baiduPushStop = function () {
+//                    //Stop work, unbind the ids
+//                    self.baiduChannelId("");
+//                    window.baidupush.stopWork(function (info) {
+//                        //your code here
+//                        alert(JSON.stringify(info));
+//                    });
+//                };
+
+
+
                 $("#remeberMe").click(function () {
                     var checkbool = $("input[name='rememberme']").attr("checked");
                     if (checkbool === true) {
-                        localStorage.setItem("savedUsername", self.username);
-                        localStorage.setItem("savedPassword", self.password);
+                        localStorage.setItem("savedUsername", self.username());
+                        localStorage.setItem("savedPassword", self.password());
                         localStorage.setItem("rem", true);
                     } else {
                         localStorage.setItem("savedUsername", "");
@@ -45,6 +207,7 @@ define(['ojs/ojcore', 'knockout', 'jquery', 'appController', 'ojs/ojlabel',
 
                 self.buttonClick = function (event) {
                     console.log(self.username(), self.password());
+//                    self.login();
                     if (self.username().toUpperCase() === "18576614980" && self.password() === "123") {
                         self.loginSuccess(true);
                     } else if (self.username().toUpperCase() === "EMPLOYEE" && self.password() === "123") {
@@ -100,17 +263,17 @@ define(['ojs/ojcore', 'knockout', 'jquery', 'appController', 'ojs/ojlabel',
                     }, 1000);
                 }
 
-                self.loginSuccess = function (data) {
-
-                    app.isLoggedIn(true);
-                    oj.Router.rootInstance.go('home');
-                    userName = self.username();
-                    userCheck = data;
-                };
-
-                self.loginFailure = function (statusCode, data) {
-                    alert("登陆失败");
-                };
+//                self.loginSuccess = function (data) {
+//
+//                    app.isLoggedIn(true);
+//                    oj.Router.rootInstance.go('home');
+//                    userName = self.username();
+//                    userCheck = data;
+//                };
+//
+//                self.loginFailure = function (statusCode, data) {
+//                    alert("登陆失败");
+//                };
 
                 // Below are a subset of the ViewModel methods invoked by the ojModule binding
                 // Please reference the ojModule jsDoc for additional available methods.

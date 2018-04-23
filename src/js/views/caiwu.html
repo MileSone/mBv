@@ -75,11 +75,9 @@
                                           value-formats.group.tooltip-label="[[groupToolValue]]"
                                           style-defaults.pie-inner-radius="[[innerRadius]]"
                                           legend.rendered ="off"
-                                          drilling ="on"
-                                          on-oj-drill='[[singecomplistener]]'
                                           style="">
                                 </oj-chart>
-                                <p class="sub_title_sty" style="width: 100%;text-align: center;" data-bind="text: payment3"></p>
+                                <p class="sub_title_sty" style="text-align: center;" data-bind="text: payment3"></p>
                             </div>
                         </div>
                     </div>
@@ -87,9 +85,9 @@
                 <div class="cwCell">
                     <div class="cw_t">公司每日资金概况</div>
                     <div class="oj-flex cwChartS" style="background-color: #dcfffa;">
-                        <oj-accordion id="accordionPage" >
-                            <oj-collapsible id="c1" expanded="true">
-                                <span slot="header"><span class="cw_sm_title">资金余额</span></span>
+<!--                        <oj-accordion id="accordionPage" >
+                            <oj-collapsible id="c1" expanded="true">-->
+                                <span slot="header" class="cw_smtitle_st"><span class="cw_sm_title">资金余额</span></span>
                                 <!-- ko foreach: incomeArr4 -->
                                 <my-botPie data-url="{{dataurl}}" chart-name="{{chartname}}"/>
                                 <!-- /ko -->
@@ -105,9 +103,9 @@
                                 <!-- ko foreach: incomeArr8 -->
                                 <my-botPie data-url="{{dataurl}}" chart-name="{{chartname}}"/>
                                 <!-- /ko -->
-                            </oj-collapsible>
-                            <oj-collapsible id="c2" expanded="true">
-                                <span slot="header"><span class="cw_sm_title">理财余额</span></span>
+<!--                            </oj-collapsible>
+                            <oj-collapsible id="c2" expanded="true">-->
+                                <span slot="header" class="cw_smtitle_st"><span class="cw_sm_title">理财余额</span></span>
                                 <!-- ko foreach: incomeArr9 -->
                                 <my-botPie data-url="{{dataurl}}" chart-name="{{chartname}}"/>
                                 <!-- /ko -->
@@ -123,8 +121,8 @@
                                 <!-- ko foreach: incomeArr13 -->
                                 <my-botPie data-url="{{dataurl}}" chart-name="{{chartname}}"/>
                                 <!-- /ko -->
-                            </oj-collapsible>
-                        </oj-accordion>
+<!--                            </oj-collapsible>
+                        </oj-accordion>-->
                     </div>
                 </div>
             </div>

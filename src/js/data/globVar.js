@@ -15,3 +15,5 @@ var userName;
 var CURDATE;
 
 var DATAFLAG = 1;
+
+var loginCustomerID;

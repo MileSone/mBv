@@ -31,6 +31,8 @@ requirejs.config(
     'customElements': 'libs/webcomponents/custom-elements.min',
     'proj4': 'libs/proj4js/dist/proj4-src',
     'css': 'libs/require-css/css',
+                                'mcs': 'mcs/mcs',
+                                'mcs_config': 'mcs/oracle_mobile_cloud_config',
   }
   //endinjector
   ,
